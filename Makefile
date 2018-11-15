@@ -1,10 +1,10 @@
 CC      = g++
 LDLIBS  = -std=c++14 -O0 -lglfw -lGL -lGLEW -lfreetype
 LDFLAGS = -ggdb -Wall -pedantic
-CFLAGS  = -std=c++14 -O0 -ggdb -I./src -I./libs/imgui -I/usr/include/freetype2/ -I../core
+CFLAGS  = -std=c++14 -O0 -ggdb -I./src -I./libs/imgui -I/usr/include/freetype2/ 
 
 SRCDIR  = src
-SRCDIR2 = libs/imgui ../core
+SRCDIR2 = libs/imgui
 SRCEXT  = cpp
 SOURCES = $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 SOURCES += $(shell find $(SRCDIR2) -type f -name *.$(SRCEXT))
