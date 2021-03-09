@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.18)
-project(GUI)
+project(imgui)
 set (CMAKE_CXX_STANDARD 17)
 
 if (UNIX)
@@ -32,32 +32,24 @@ if (UNIX)
 endif()
 
 include_directories(src)
-include_directories(libs/imgui)
-include_directories(libs/imgui/misc/freetype)
-include_directories(libs/imgui/misc/fonts)
-include_directories(libs/imgui/misc/natvis)
+include_directories(imgui-docking)
+include_directories(imgui-docking/misc/freetype)
+include_directories(imgui-docking/misc/fonts)
+include_directories(imgui-docking/misc/natvis)
 
 
-add_library(GUI
+add_library(imgui
   src/ImGui_init.cpp
-  libs/imgui/imgui_draw.cpp
-  libs/imgui/imgui_impl_glfw_gl3.cpp
-  libs/imgui/misc/freetype/imgui_freetype.cpp
-  libs/imgui/imgui_demo.cpp
-  libs/imgui/imgui.cpp)
+  imgui-docking/imgui_draw.cpp
+  imgui-docking/imgui_impl_glfw_gl3.cpp
+  imgui-docking/misc/freetype/imgui_freetype.cpp
+  imgui-docking/imgui_demo.cpp
+  imgui-docking/imgui_tables.cpp
+  imgui-docking/imgui.cpp)
 
-target_link_libraries(GUI
+target_link_libraries(imgui
   Freetype::Freetype
   glfw
   OpenGL::GL
   ${GLEW_LIBRARIES}
   GLEW::GLEW)
-
-
-add_executable(
-  main
-  main.cpp)
-
-target_link_libraries(
-  main
-  GUI)
