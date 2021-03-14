@@ -36,20 +36,23 @@ include_directories(imgui-docking)
 include_directories(imgui-docking/misc/freetype)
 include_directories(imgui-docking/misc/fonts)
 include_directories(imgui-docking/misc/natvis)
-
+include_directories(imgui-docking/backends)
 
 add_library(imgui
   src/ImGui_init.cpp
-  imgui-docking/imgui_draw.cpp
-  imgui-docking/imgui_impl_glfw_gl3.cpp
+  imgui-docking/imgui_draw.cpp  
   imgui-docking/misc/freetype/imgui_freetype.cpp
   imgui-docking/imgui_demo.cpp
   imgui-docking/imgui_tables.cpp
-  imgui-docking/imgui.cpp)
+  imgui-docking/imgui_widgets.cpp
+  imgui-docking/imgui.cpp
+  imgui-docking/backends/imgui_impl_glfw.cpp
+  imgui-docking/backends/imgui_impl_opengl3.cpp
+  )
 
 target_link_libraries(imgui
   Freetype::Freetype
-  glfw
   OpenGL::GL
   ${GLEW_LIBRARIES}
-  GLEW::GLEW)
+  GLEW::GLEW
+  glfw)

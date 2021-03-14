@@ -1,14 +1,14 @@
 #pragma once
 
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-
 #include <iostream>
 #include <thread>
 #include <atomic>
 
-#include "imgui.h"
-#include "imgui_impl_glfw_gl3.h"
+#include <imgui.h>
+
+#include <GL/glew.h>
+
+#include <GLFW/glfw3.h>
 
 typedef void (*init_func_t)();
 typedef void (*render_func_t)(double time);
