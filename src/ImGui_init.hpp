@@ -13,6 +13,7 @@
 typedef void (*init_func_t)();
 typedef void (*render_func_t)(double time);
 typedef void (*resize_func_t)(GLFWwindow* window, int width, int height);
+typedef void (*key_func_t)(GLFWwindow* window, int key, int scancode, int action, int mods);
 
 struct WindowArgs {
     int width;
@@ -20,6 +21,7 @@ struct WindowArgs {
     init_func_t init_func;
     resize_func_t resize_func;
     render_func_t render_func;
+    key_func_t key_func;
 };
     
 class Window {

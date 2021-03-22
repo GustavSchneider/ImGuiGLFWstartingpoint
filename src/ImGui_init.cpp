@@ -46,17 +46,20 @@ Window::main_loop()
     //io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;  // Enable Keyboard Controls
     //io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;   // Enable Gamepad Controls
     io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
-    io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
+    //io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
 
     if (args_.resize_func)
         glfwSetWindowSizeCallback(window_, args_.resize_func);
+
+    if (args_.key_func)
+        glfwSetKeyCallback(window_, args_.key_func);
 
     // Setup style
     ImGui::StyleColorsDark();
 
     //ImGui_ImplGlfwGL3_Init(window_, true);
     ImGui_ImplGlfw_InitForOpenGL(window_, true);
-    ImGui_ImplOpenGL3_Init("#version 450");
+    ImGui_ImplOpenGL3_Init("#version 420");
 
     if (args_.init_func) {
         args_.init_func();
@@ -108,11 +111,13 @@ int Window::start(WindowArgs args)
     this->main_loop();
     //std::thread t([this] { this->main_loop(); });    
     //t.detach();
+    return 0;
 }
 
 int Window::stop()
 {
     running_ = false;
+    return 0;
 }
 
 bool Window::is_running()
