@@ -32,22 +32,22 @@ if (UNIX)
 endif()
 
 include_directories(src)
-include_directories(imgui-docking)
-include_directories(imgui-docking/misc/freetype)
-include_directories(imgui-docking/misc/fonts)
-include_directories(imgui-docking/misc/natvis)
-include_directories(imgui-docking/backends)
+include_directories(imgui)
+include_directories(imgui/misc/freetype)
+include_directories(imgui/misc/fonts)
+include_directories(imgui/misc/natvis)
+include_directories(imgui/backends)
 
 add_library(imgui
   src/ImGui_init.cpp
-  imgui-docking/imgui_draw.cpp  
-  imgui-docking/misc/freetype/imgui_freetype.cpp
-  imgui-docking/imgui_demo.cpp
-  imgui-docking/imgui_tables.cpp
-  imgui-docking/imgui_widgets.cpp
-  imgui-docking/imgui.cpp
-  imgui-docking/backends/imgui_impl_glfw.cpp
-  imgui-docking/backends/imgui_impl_opengl3.cpp
+  imgui/imgui_draw.cpp  
+  imgui/misc/freetype/imgui_freetype.cpp
+  imgui/imgui_demo.cpp
+  imgui/imgui_tables.cpp
+  imgui/imgui_widgets.cpp
+  imgui/imgui.cpp
+  imgui/backends/imgui_impl_glfw.cpp
+  imgui/backends/imgui_impl_opengl3.cpp
   )
 
 target_link_libraries(imgui

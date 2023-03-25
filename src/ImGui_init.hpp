@@ -3,7 +3,7 @@
 #include <iostream>
 #include <thread>
 #include <atomic>
-
+#define IMGUI_DEFINE_MATH_OPERATORS
 #include <imgui.h>
 
 #include <GL/glew.h>
